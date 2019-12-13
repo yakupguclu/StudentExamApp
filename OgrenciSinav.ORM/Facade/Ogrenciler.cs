@@ -26,5 +26,22 @@ namespace OgrenciSinav.ORM.Facade
             komut.Parameters.AddWithValue("@tckn", entity.TCKN);
             return Tools.ExecuteNonQuery(komut);
         }
+        public static bool OgrenciGuncelle(Ogrenci entity)
+        {
+            SqlCommand komut = new SqlCommand("OgrenciGuncelle", Tools.Baglanti);
+            komut.CommandType = CommandType.StoredProcedure;
+            komut.Parameters.AddWithValue("@ad", entity.Ad);
+            komut.Parameters.AddWithValue("@soyad", entity.Soyad);
+            komut.Parameters.AddWithValue("@tckn", entity.TCKN);
+            komut.Parameters.AddWithValue("@id", entity.OgrenciID);
+            return Tools.ExecuteNonQuery(komut);
+        }
+        public static bool OgrenciSil(Ogrenci entity)
+        {
+            SqlCommand komut = new SqlCommand("OgrenciSil", Tools.Baglanti);
+            komut.CommandType = CommandType.StoredProcedure;
+            komut.Parameters.AddWithValue("@id", entity.OgrenciID);
+            return Tools.ExecuteNonQuery(komut);
+        }
     }
 }

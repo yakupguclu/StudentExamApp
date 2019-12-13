@@ -23,7 +23,7 @@ namespace OgrenciSinav
         private void btnGiris_Click(object sender, EventArgs e)
         {
             Ogrenci o = new Ogrenci();
-            o.OgrenciID = txtKullaniciAd.Text;
+            o.OgrenciID = Convert.ToInt32(txtKullaniciAd.Text);
             o.TCKN = txtParola.Text;
             if (Login.GirisKontrol(o) == true)
             {

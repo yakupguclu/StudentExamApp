@@ -52,6 +52,7 @@
             this.dgvOgrenci.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOgrenci.Size = new System.Drawing.Size(1381, 409);
             this.dgvOgrenci.TabIndex = 0;
+            this.dgvOgrenci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOgrenci_CellClick);
             // 
             // label1
             // 
@@ -112,6 +113,7 @@
             this.btnGuncelle.TabIndex = 8;
             this.btnGuncelle.Text = "GÜNCELLE";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnSil
             // 
@@ -121,6 +123,7 @@
             this.btnSil.TabIndex = 9;
             this.btnSil.Text = "SİL";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // mtbTCKN
             // 
