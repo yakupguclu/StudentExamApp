@@ -10,10 +10,13 @@ namespace OgrenciSinav.ORM.Entity
     {
         public int SoruID { get; set; }
         public string Metin { get; set; }
+        public string SoruResim { get; set; }
         public string SikA { get; set; }
         public string SikB { get; set; }
         public string SikC { get; set; }
         public string SikD { get; set; }
-        public char DogruCevap { get; set; }
+        public string DogruCevap { get; set; }
+        public int KonuID { get; set; }
     }
-}
+    }
+

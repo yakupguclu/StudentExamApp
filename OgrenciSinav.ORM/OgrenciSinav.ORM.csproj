@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Konu.cs" />
     <Compile Include="Entity\Ogrenci.cs" />
     <Compile Include="Entity\Soru.cs" />
+    <Compile Include="Facade\Konular.cs" />
     <Compile Include="Facade\Login.cs" />
     <Compile Include="Facade\Ogrenciler.cs" />
     <Compile Include="Facade\Sorular.cs" />

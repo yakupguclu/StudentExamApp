@@ -24,5 +24,13 @@ namespace OgrenciSinav
             form.MdiParent = this;
             form.Show();
         }
+
+        private void soruİşlemleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SoruForm form = new SoruForm();
+            form.WindowState = FormWindowState.Maximized;
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

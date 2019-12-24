@@ -12,7 +12,5 @@ namespace OgrenciSinav.ORM
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public string TCKN { get; set; }
-        public int OgretmenID { get; set; }
-        public int DersID { get; set; }
     }
 }
