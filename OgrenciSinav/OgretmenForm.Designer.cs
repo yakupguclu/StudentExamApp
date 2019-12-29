@@ -33,6 +33,7 @@
             this.öğrenciListeleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sorularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soruİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.öğrenciDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msNavbar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,8 @@
             this.msNavbar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msNavbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ogrenciToolStripMenuItem,
-            this.sorularToolStripMenuItem});
+            this.sorularToolStripMenuItem,
+            this.öğrenciDetayToolStripMenuItem});
             this.msNavbar.Location = new System.Drawing.Point(0, 0);
             this.msNavbar.Name = "msNavbar";
             this.msNavbar.Size = new System.Drawing.Size(1223, 28);
@@ -59,7 +61,7 @@
             // öğrenciListeleToolStripMenuItem
             // 
             this.öğrenciListeleToolStripMenuItem.Name = "öğrenciListeleToolStripMenuItem";
-            this.öğrenciListeleToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.öğrenciListeleToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.öğrenciListeleToolStripMenuItem.Text = "ÖğrenciListele";
             this.öğrenciListeleToolStripMenuItem.Click += new System.EventHandler(this.öğrenciListeleToolStripMenuItem_Click);
             // 
@@ -74,9 +76,16 @@
             // soruİşlemleriToolStripMenuItem
             // 
             this.soruİşlemleriToolStripMenuItem.Name = "soruİşlemleriToolStripMenuItem";
-            this.soruİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.soruİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.soruİşlemleriToolStripMenuItem.Text = "Soru İşlemleri";
             this.soruİşlemleriToolStripMenuItem.Click += new System.EventHandler(this.soruİşlemleriToolStripMenuItem_Click);
+            // 
+            // öğrenciDetayToolStripMenuItem
+            // 
+            this.öğrenciDetayToolStripMenuItem.Name = "öğrenciDetayToolStripMenuItem";
+            this.öğrenciDetayToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.öğrenciDetayToolStripMenuItem.Text = "ÖğrenciDetay";
+//            this.öğrenciDetayToolStripMenuItem.Click += new System.EventHandler(this.öğrenciDetayToolStripMenuItem_Click);
             // 
             // OgretmenForm
             // 
@@ -104,5 +113,6 @@
         private System.Windows.Forms.ToolStripMenuItem öğrenciListeleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sorularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem soruİşlemleriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem öğrenciDetayToolStripMenuItem;
     }
 }

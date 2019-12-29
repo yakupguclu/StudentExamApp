@@ -12,13 +12,14 @@ namespace OgrenciSinav.ORM.Facade
 {
     public class Sorular
     {
+        
         public static List<Soru> SoruGetir()
         {
-            List<Soru> SoruListesi = new List<Soru>();
             SqlCommand komut = new SqlCommand("Exec SoruGetir", Tools.Baglanti);
             Tools.Baglanti.Open();
             List<Soru> listSorular = new List<Soru>();
             SqlDataReader dr = komut.ExecuteReader();
+            
             while (dr.Read())
             {
                 Soru entity = new Soru();
@@ -28,6 +29,27 @@ namespace OgrenciSinav.ORM.Facade
                 entity.SikB = dr["SikB"].ToString();
                 entity.SikC = dr["SikC"].ToString();
                 entity.SikD = dr["SikD"].ToString();
+                entity.SoruResim = dr["SoruResim"].ToString();
+                entity.DogruCevap = dr["DogruCevap"].ToString();
+                entity.KonuID = (int)dr["KonuID"];
+                listSorular.Add(entity);
+            }
+            Tools.Baglanti.Close();
+            
+            SqlCommand komut1 = new SqlCommand("Exec SoruGetirTamamla", Tools.Baglanti);
+            Tools.Baglanti.Open();
+            dr = komut1.ExecuteReader();
+            while (dr.Read())
+            {
+                Soru entity = new Soru();
+                entity.SoruID = (int)dr[0];
+                entity.Metin = dr["Metin"].ToString();
+                entity.SikA = dr["SikA"].ToString();
+                entity.SikB = dr["SikB"].ToString();
+                entity.SikC = dr["SikC"].ToString();
+                entity.SikD = dr["SikD"].ToString();
+                entity.SoruResim = dr["SoruResim"].ToString();
+                entity.DogruCevap = dr["DogruCevap"].ToString();
                 listSorular.Add(entity);
             }
             Tools.Baglanti.Close();

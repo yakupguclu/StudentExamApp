@@ -16,7 +16,7 @@ namespace OgrenciSinav
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SoruForm());
+            Application.Run(new AnaForm());
         }
     }
 }

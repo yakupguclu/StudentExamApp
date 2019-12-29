@@ -17,6 +17,7 @@ namespace OgrenciSinav.ORM.Entity
         public string SikD { get; set; }
         public string DogruCevap { get; set; }
         public int KonuID { get; set; }
+        public int AsamaNO { get; set; }
     }
-    }
+}
 

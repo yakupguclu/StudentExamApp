@@ -113,14 +113,15 @@ namespace OgrenciSinav
         }
         private void dgvSorular_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            pbResim.ImageLocation = dgvSorular.CurrentRow.Cells["SoruResim"].Value.ToString();
-            pbSikA.ImageLocation = dgvSorular.CurrentRow.Cells["SikA"].Value.ToString();
-            pbSikB.ImageLocation = dgvSorular.CurrentRow.Cells["SikB"].Value.ToString();
-            pbSikC.ImageLocation = dgvSorular.CurrentRow.Cells["SikC"].Value.ToString();
-            pbSikD.ImageLocation = dgvSorular.CurrentRow.Cells["SikD"].Value.ToString();
+            pbResim.ImageLocation = txtSoru.Text = dgvSorular.CurrentRow.Cells["SoruResim"].Value.ToString();
+            pbSikA.ImageLocation = txtA.Text = dgvSorular.CurrentRow.Cells["SikA"].Value.ToString();
+            pbSikB.ImageLocation = txtB.Text = dgvSorular.CurrentRow.Cells["SikB"].Value.ToString();
+            pbSikC.ImageLocation = txtC.Text = dgvSorular.CurrentRow.Cells["SikC"].Value.ToString();
+            pbSikD.ImageLocation = txtD.Text = dgvSorular.CurrentRow.Cells["SikD"].Value.ToString();
             txtCevap.Text = dgvSorular.CurrentRow.Cells["DogruCevap"].Value.ToString();
             txtMetin.Text = dgvSorular.CurrentRow.Cells["Metin"].Value.ToString();
             txtCevap.Tag = dgvSorular.CurrentRow.Cells["SoruID"].Value.ToString();
+            cmbKonu.Text = dgvSorular.CurrentRow.Cells["Konu"].Value.ToString();
         }
 
        

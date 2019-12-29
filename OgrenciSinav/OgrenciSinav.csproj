@@ -37,6 +37,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +75,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SonuclarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SonuclarForm.Designer.cs">
+      <DependentUpon>SonuclarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SoruForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SonuclarForm.resx">
+      <DependentUpon>SonuclarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SoruForm.resx">
       <DependentUpon>SoruForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,7 +125,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OgrenciSinav.ORM\OgrenciSinav.ORM.csproj">

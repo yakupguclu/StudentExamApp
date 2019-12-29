@@ -32,5 +32,7 @@ namespace OgrenciSinav
             form.MdiParent = this;
             form.Show();
         }
+
+       
     }
 }

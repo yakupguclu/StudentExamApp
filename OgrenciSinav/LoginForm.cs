@@ -25,7 +25,7 @@ namespace OgrenciSinav
             Ogrenci o = new Ogrenci();
             o.OgrenciID = Convert.ToInt32(txtKullaniciAd.Text);
             o.TCKN = txtParola.Text;
-            if (Login.GirisKontrol(o) == true)
+            if (Loginler.GirisKontrol(o) == true)
             {
                 this.Hide();
                 AnaForm ana = new AnaForm();
