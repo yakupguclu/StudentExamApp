@@ -1,0 +1,1 @@
+.sql uzantısını .mdf olarak değiştirip MSSQL serverinize import edebilirsiniz.
