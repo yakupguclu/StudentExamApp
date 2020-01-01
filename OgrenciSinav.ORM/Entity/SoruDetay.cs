@@ -8,7 +8,7 @@ namespace OgrenciSinav.ORM.Entity
 {
     public class SoruDetay
     {
-        public int OgrenciID { get; set; }
+        public string OgrenciID { get; set; }
         public int SoruID { get; set; }
         public int DersID { get; set; }
         public string VerilenCevap { get; set; }

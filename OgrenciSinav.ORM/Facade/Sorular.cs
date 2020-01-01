@@ -98,6 +98,13 @@ namespace OgrenciSinav.ORM.Facade
             sda.Fill(dt);
             return dt;
         }
+        public static bool AsamaNoGuncelle(int id)
+        {
+            SqlCommand komut = new SqlCommand("AsamaNoGuncelle",Tools.Baglanti);
+            komut.CommandType = CommandType.StoredProcedure;
+            komut.Parameters.AddWithValue("@id", id);
+            return Tools.ExecuteNonQuery(komut);
+        }
 
     }
 }

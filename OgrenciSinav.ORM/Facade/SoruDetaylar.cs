@@ -1,4 +1,4 @@
-﻿using OgrenciSinav.ORM.Entity;
+﻿    using OgrenciSinav.ORM.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,12 +11,11 @@ namespace OgrenciSinav.ORM.Facade
 {
     public class SoruDetaylar
     {
-        
-
         public static bool DetayEkle(SoruDetay entity)
         {
             SqlCommand komut = new SqlCommand("SoruDetayEkle", Tools.Baglanti);
             komut.CommandType = CommandType.StoredProcedure;
+            komut.Parameters.AddWithValue("@ogrid", entity.OgrenciID);
             komut.Parameters.AddWithValue("@soruid", entity.SoruID);
             komut.Parameters.AddWithValue("@verilencevap", entity.VerilenCevap);
             komut.Parameters.AddWithValue("@konuid", entity.KonuID);
@@ -24,28 +23,30 @@ namespace OgrenciSinav.ORM.Facade
         }
         public static int IstatistikCek(int KonuID)
         {
-            SqlCommand komut = new SqlCommand("SELECT COUNT(*) as 'Sayac' FROM SoruDetay WHERE KonuID='"+KonuID+"'", Tools.Baglanti);
-            Tools.Baglanti.Open();
+            SqlConnection sd = new SqlConnection(@"Data Source=YAKUP\SQLEXPRESS;Initial Catalog=StudentExam;Integrated Security=True");
+            SqlCommand komut = new SqlCommand("SELECT COUNT(*) as 'Sayac' FROM SoruDetay WHERE KonuID='"+KonuID+"'",sd);
+            sd.Open();
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
             {
                 KonuID = (int)dr["Sayac"];
             }
-            Tools.Baglanti.Close();
+            sd.Close();
             return KonuID;
         }
         public static string GenelIstatistik(string entity)
         {
-            SqlCommand komut = new SqlCommand(entity, Tools.Baglanti);
+            SqlConnection sd = new SqlConnection(@"Data Source=YAKUP\SQLEXPRESS;Initial Catalog=StudentExam;Integrated Security=True");
+            SqlCommand komut = new SqlCommand(entity, sd);
             komut.CommandType = CommandType.StoredProcedure;
-            Tools.Baglanti.Open();
+            sd.Open();
             SqlDataReader dr = komut.ExecuteReader();
             
             while (dr.Read())
             {
                 entity = dr["Genel"].ToString();
             }
-            Tools.Baglanti.Close();
+            sd.Close();
             return entity;
         }
 

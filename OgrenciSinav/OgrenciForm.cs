@@ -45,7 +45,7 @@ namespace OgrenciSinav
             if (dgvOgrenci.CurrentRow == null) return;
             txtAdi.Text = dgvOgrenci.CurrentRow.Cells["Ad"].Value.ToString();
             txtSoyadi.Text = dgvOgrenci.CurrentRow.Cells["Soyad"].Value.ToString();
-            mtbTCKN.Text = dgvOgrenci.CurrentRow.Cells["TCKN"].Value.ToString();
+            mtbTCKN1.Text = dgvOgrenci.CurrentRow.Cells["TCKN"].Value.ToString();
             txtAdi.Tag = dgvOgrenci.CurrentRow.Cells["OgrenciID"].Value;
         }
 
@@ -55,7 +55,7 @@ namespace OgrenciSinav
             ogrenci.Ad = txtAdi.Text;
             ogrenci.Soyad = txtSoyadi.Text;
             ogrenci.TCKN = mtbTCKN.Text;
-            ogrenci.OgrenciID = Convert.ToInt32(txtAdi.Tag);
+            ogrenci.OgrenciID = (string)txtAdi.Tag;
             if(!Ogrenciler.OgrenciGuncelle(ogrenci))
                 MessageBox.Show("Güncelleme Başarısız");
             else
@@ -66,12 +66,13 @@ namespace OgrenciSinav
         private void btnSil_Click(object sender, EventArgs e)
         {
             Ogrenci ogrenci = new Ogrenci();
-            ogrenci.OgrenciID = (int)txtAdi.Tag;
+            ogrenci.OgrenciID = Convert.ToString(txtAdi.Tag);
             if(!Ogrenciler.OgrenciSil(ogrenci))
                 MessageBox.Show("Silme İşlemi Başarısız");
             else
                 MessageBox.Show("Silme İşlemi Başarılı");
             Listele();
         }
+
     }
 }

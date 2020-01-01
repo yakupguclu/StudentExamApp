@@ -46,6 +46,7 @@
     <Compile Include="Entity\Login.cs" />
     <Compile Include="Entity\Ogrenci.cs" />
     <Compile Include="Entity\OgrenciDetay.cs" />
+    <Compile Include="Entity\Ogretmen.cs" />
     <Compile Include="Entity\SoruDetay.cs" />
     <Compile Include="Entity\Soru.cs" />
     <Compile Include="Facade\Konular.cs" />

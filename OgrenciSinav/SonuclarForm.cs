@@ -57,7 +57,7 @@ namespace OgrenciSinav
             chart2.ChartAreas[0].AxisX.LabelStyle.Angle = -70;
 
             //Genel İstatistik
-           
+
             chartGenel.Series["Genel"].Points.Add(Convert.ToInt32(SoruDetaylar.GenelIstatistik("ToplamSoru")));
             chartGenel.Series["Genel"].Points.Add(Convert.ToInt32(SoruDetaylar.GenelIstatistik("OrtalamaPuan")));
 
@@ -66,6 +66,5 @@ namespace OgrenciSinav
 
 
         }
-        
     }
 }

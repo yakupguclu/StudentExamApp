@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OgrenciSinav
-{
+{// DAKİKA SAYACI AYRALANCAK
     public partial class AnaForm : Form
     {
         public AnaForm()
@@ -29,69 +29,74 @@ namespace OgrenciSinav
 
         private void AnaForm_Load(object sender, EventArgs e)
         {
+            
             listSorular = Sorular.SoruGetir();
             timer.Start();
+            List<Login> listLogin = new List<Login>();
+            listLogin = Loginler.OgrBilgiGetir();
+            lblAdSoyad.Text = listLogin[0].Ad + " " + listLogin[0].Soyad;
+            lblOgrenciNo.Text = listLogin[0].OgrenciID;
         }
         
         private void btnGEC_Click(object sender, EventArgs e)
         {
-            btnGec.Text = "SONRAKİ SORU";
-            SoruGoster(i);
-            if (i<20)
-            {
-                //SoruDetay Ekleme
-                SoruDetay ogrenci = new SoruDetay();
-                ogrenci.SoruID = listSorular[i].SoruID;
-                ogrenci.KonuID = listSorular[i].KonuID;
-                if (rbSikA.Checked == true)
+                btnGec.Text = "SONRAKİ";
+                lblSoruMetin.Visible = true;
+                SoruGoster(i);
+                if (i < listSorular.Count)
                 {
-                    ogrenci.VerilenCevap = "A";
+                    //SoruDetay Ekleme
+                    SoruDetay ogrenci = new SoruDetay();
+                    ogrenci.SoruID = listSorular[i].SoruID;
+                    ogrenci.KonuID = listSorular[i].KonuID;
+                    ogrenci.OgrenciID = lblOgrenciNo.Text;
+                    if (rbSikA.Checked == true)
+                    {
+                        ogrenci.VerilenCevap = "A";
+                    }
+                    if (rbSikB.Checked == true)
+                    {
+                        ogrenci.VerilenCevap = "B";
+                    }
+                    if (rbSikC.Checked == true)
+                    {
+                        ogrenci.VerilenCevap = "C";
+                    }
+                    if (rbSikD.Checked == true)
+                    {
+                        ogrenci.VerilenCevap = "D";
+                    }
+                    SoruDetaylar.DetayEkle(ogrenci);
                 }
-                if (rbSikB.Checked == true)
-                {
-                    ogrenci.VerilenCevap = "B";
-
-                }
-                if (rbSikC.Checked == true)
-                {
-                    ogrenci.VerilenCevap = "C";
-                }
-                if (rbSikD.Checked == true)
-                {
-                    ogrenci.VerilenCevap = "D";
-                }
-                if(!SoruDetaylar.DetayEkle(ogrenci))
-                    MessageBox.Show("Test");
-            }
-            i++;
-            soruSayisi++;
+                i++;
+                soruSayisi++;
         }
 
         private void btnSonuclar_Click(object sender, EventArgs e)
         {
             OgrenciDetay ogrenci = new OgrenciDetay();
-            ogrenci.Tarih = DateTime.Today.Date;
             ogrenci.Puan = puanSayac;
-            ogrenci.CozulenSoruSayisi = soruSayisi;
-            if(!OgrenciDetaylar.DetayEkle(ogrenci))
-                MessageBox.Show("HATA");
+            ogrenci.CozulenSoruSayisi = (soruSayisi-1);
+            ogrenci.OgrenciID = lblOgrenciNo.Text;
+            OgrenciDetaylar.DetayEkle(ogrenci);
+
             yanlisSayisi = 20 - dogruSayisi;
 
             MessageBox.Show("Puanınız : "+puanSayac.ToString()+"\nDoğru Sayısı : "+dogruSayisi.ToString()+
                 "\nYanlış Sayısı : "+yanlisSayisi.ToString()+"\nSoru Sayısı : "+(soruSayisi-1).ToString());
-
         }
         private void btnIstatistik_Click(object sender, EventArgs e)
         {
             SonuclarForm frm = new SonuclarForm();
-            this.Hide();
             frm.Show();
+            this.Hide();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            
             timer.Interval = 1200;
-           prgbZaman.Minimum = 0;
+            prgbZaman.Minimum = 0;
             prgbZaman.Maximum = 12000;
             prgbZaman.Step = 1;
             
@@ -133,19 +138,25 @@ namespace OgrenciSinav
                 {
                     puanSayac += 5;
                     dogruSayisi += 1;
+                    Sorular.AsamaNoGuncelle(listSorular[i].SoruID);
                 }
                 if (rbSikB.Checked == true && listSorular[i].DogruCevap == "B")
                 {
                     puanSayac += 5;
-
+                    dogruSayisi += 1;
+                    Sorular.AsamaNoGuncelle(listSorular[i].SoruID);
                 }
                 if (rbSikC.Checked == true && listSorular[i].DogruCevap == "C")
                 {
                     puanSayac += 5;
+                    dogruSayisi += 1;
+                    Sorular.AsamaNoGuncelle(listSorular[i].SoruID);
                 }
                 if (rbSikD.Checked == true && listSorular[i].DogruCevap == "D")
                 {
                     puanSayac += 5;
+                    dogruSayisi += 1;
+                    Sorular.AsamaNoGuncelle(listSorular[i].SoruID);
                 }
 
             }
@@ -156,7 +167,48 @@ namespace OgrenciSinav
                 btnSonuclar.Visible = true;
             }
         }
-
-       
+        private void btnSorular_Click(object sender, EventArgs e)
+        {
+            pnlSınav.Visible = true;
+        }
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void btnSinav_Click(object sender, EventArgs e)
+        {
+         pnlIlletisim.Visible = false;
+         pnlKaynak.Visible = false;
+         pnlVideo.Visible = false;
+         pnlSınav.Visible = true;
+        }
+        private void btnVideo_Click_1(object sender, EventArgs e)
+        {
+            pnlIlletisim.Visible = false;
+            pnlKaynak.Visible = false;
+            pnlSınav.Visible = false;
+            pnlVideo.Visible = true;
+            Video.URL = Application.StartupPath + "/Video.mp4";
+            Video.URL = "";
+        }
+        private void btnKaynak_Click(object sender, EventArgs e)
+        {
+            pnlKaynak.Visible = true;
+            pnlSınav.Visible = false;
+            pnlVideo.Visible = false;
+            pnlIlletisim.Visible = false;
+        }
+        private void btnIletisim_Click(object sender, EventArgs e)
+        {
+            pnlIlletisim.Visible = true;
+            pnlKaynak.Visible = false;
+            pnlSınav.Visible = false;
+            pnlVideo.Visible = false;
+        }
+        private void btnIstatistik_Click_1(object sender, EventArgs e)
+        {
+            SonuclarForm frm1 = new SonuclarForm();
+            frm1.Show();
+        }
     }
 }

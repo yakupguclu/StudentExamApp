@@ -8,7 +8,7 @@ namespace OgrenciSinav.ORM
 {
     public class Ogrenci
     {
-        public int OgrenciID { get; set; }
+        public string OgrenciID { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public string TCKN { get; set; }

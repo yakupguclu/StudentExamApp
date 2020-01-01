@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace OgrenciSinav.ORM.Entity
 {
-    public class Login
+    public class Login:Ogrenci
     {
-        public int OgrenciID { get; set; }
         public int Parola { get; set; }
     }
 }

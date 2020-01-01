@@ -18,8 +18,14 @@ namespace OgrenciSinav.ORM.Facade
             komut.Parameters.AddWithValue("@ogrid", entity.OgrenciID);
             komut.Parameters.AddWithValue("@cozulensorusayisi", entity.CozulenSoruSayisi);
             komut.Parameters.AddWithValue("@puan", entity.Puan);
-            komut.Parameters.AddWithValue("@tarih", entity.Tarih);
             return Tools.ExecuteNonQuery(komut);
+        }
+        public static DataTable OgrenciDetayListele(Ogrenci entity)
+        {
+            SqlDataAdapter sda = new SqlDataAdapter("OgrenciDetayListele", Tools.Baglanti);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
         }
     }
 }
