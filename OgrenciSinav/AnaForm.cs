@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OgrenciSinav
-{// DAKİKA SAYACI AYRALANCAK
+{
     public partial class AnaForm : Form
     {
         public AnaForm()
@@ -24,12 +24,12 @@ namespace OgrenciSinav
         int soruSayisi = 0;
         int dakika = 60;
         int saniye = 60;
-        int dogruSayisi = 0;
-        int yanlisSayisi = 0;
+        static int dogruSayisi = 0;
+        static int yanlisSayisi = 0;
 
         private void AnaForm_Load(object sender, EventArgs e)
         {
-            
+            btnSonuclar.Visible = false;
             listSorular = Sorular.SoruGetir();
             timer.Start();
             List<Login> listLogin = new List<Login>();
@@ -74,16 +74,19 @@ namespace OgrenciSinav
 
         private void btnSonuclar_Click(object sender, EventArgs e)
         {
+            yanlisSayisi = 20 - dogruSayisi;
+
             OgrenciDetay ogrenci = new OgrenciDetay();
             ogrenci.Puan = puanSayac;
             ogrenci.CozulenSoruSayisi = (soruSayisi-1);
             ogrenci.OgrenciID = lblOgrenciNo.Text;
+            ogrenci.DogruSayisi = dogruSayisi;
+            ogrenci.YanlisSayisi = yanlisSayisi;
             OgrenciDetaylar.DetayEkle(ogrenci);
-
-            yanlisSayisi = 20 - dogruSayisi;
 
             MessageBox.Show("Puanınız : "+puanSayac.ToString()+"\nDoğru Sayısı : "+dogruSayisi.ToString()+
                 "\nYanlış Sayısı : "+yanlisSayisi.ToString()+"\nSoru Sayısı : "+(soruSayisi-1).ToString());
+            btnSonuclar.Visible = false;
         }
         private void btnIstatistik_Click(object sender, EventArgs e)
         {

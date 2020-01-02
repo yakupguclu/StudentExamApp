@@ -41,6 +41,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SonuclarForm));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartGenel = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -49,11 +50,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartSinav = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnKapat = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartGenel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSinav)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
@@ -97,7 +99,7 @@
             series2.XValueMember = "5";
             series2.YValueMembers = "10";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(616, 295);
+            this.chart2.Size = new System.Drawing.Size(634, 295);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "SoruSayısı";
             // 
@@ -171,26 +173,63 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "TEBRİKLER...";
             // 
-            // chart3
+            // chartSinav
             // 
             chartArea4.Area3DStyle.WallWidth = 10;
             chartArea4.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea4);
+            this.chartSinav.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
-            this.chart3.Legends.Add(legend4);
-            this.chart3.Location = new System.Drawing.Point(641, 347);
-            this.chart3.Name = "chart3";
-            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartSinav.Legends.Add(legend4);
+            this.chartSinav.Location = new System.Drawing.Point(641, 347);
+            this.chartSinav.Name = "chartSinav";
+            this.chartSinav.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series4.ChartArea = "ChartArea1";
             series4.IsValueShownAsLabel = true;
             series4.Legend = "Legend1";
-            series4.Name = "Genel";
+            series4.Name = "SonSinav";
             series4.XValueMember = "5";
             series4.YValueMembers = "10";
-            this.chart3.Series.Add(series4);
-            this.chart3.Size = new System.Drawing.Size(622, 295);
-            this.chart3.TabIndex = 7;
-            this.chart3.Text = "chart3";
+            this.chartSinav.Series.Add(series4);
+            this.chartSinav.Size = new System.Drawing.Size(594, 295);
+            this.chartSinav.TabIndex = 7;
+            this.chartSinav.Text = "chart3";
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Active = false;
+            this.btnKapat.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnKapat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKapat.BorderRadius = 0;
+            this.btnKapat.ButtonText = "Kapat";
+            this.btnKapat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKapat.DisabledColor = System.Drawing.Color.Gray;
+            this.btnKapat.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnKapat.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnKapat.Iconimage")));
+            this.btnKapat.Iconimage_right = null;
+            this.btnKapat.Iconimage_right_Selected = null;
+            this.btnKapat.Iconimage_Selected = null;
+            this.btnKapat.IconMarginLeft = 0;
+            this.btnKapat.IconMarginRight = 0;
+            this.btnKapat.IconRightVisible = true;
+            this.btnKapat.IconRightZoom = 0D;
+            this.btnKapat.IconVisible = true;
+            this.btnKapat.IconZoom = 90D;
+            this.btnKapat.IsTab = false;
+            this.btnKapat.Location = new System.Drawing.Point(1242, 21);
+            this.btnKapat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnKapat.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnKapat.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnKapat.selected = false;
+            this.btnKapat.Size = new System.Drawing.Size(134, 59);
+            this.btnKapat.TabIndex = 8;
+            this.btnKapat.Text = "Kapat";
+            this.btnKapat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKapat.Textcolor = System.Drawing.Color.White;
+            this.btnKapat.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // SonuclarForm
             // 
@@ -198,7 +237,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1421, 706);
-            this.Controls.Add(this.chart3);
+            this.Controls.Add(this.btnKapat);
+            this.Controls.Add(this.chartSinav);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -213,7 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartGenel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSinav)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +269,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSinav;
+        private Bunifu.Framework.UI.BunifuFlatButton btnKapat;
     }
 }

@@ -11,6 +11,8 @@ namespace OgrenciSinav.ORM.Entity
         public string OgrenciID { get; set; }
         public int CozulenSoruSayisi { get; set; }
         public int Puan { get; set; }
-        public DateTime Tarih { get; set; }
+        public int DogruSayisi { get; set; }
+        public int YanlisSayisi { get; set; }
+
     }
 }

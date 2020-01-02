@@ -18,7 +18,29 @@ namespace OgrenciSinav.ORM.Facade
             komut.Parameters.AddWithValue("@ogrid", entity.OgrenciID);
             komut.Parameters.AddWithValue("@cozulensorusayisi", entity.CozulenSoruSayisi);
             komut.Parameters.AddWithValue("@puan", entity.Puan);
+            komut.Parameters.AddWithValue("@dogrusayisi", entity.DogruSayisi);
+            komut.Parameters.AddWithValue("@yanlissayisi", entity.YanlisSayisi);
             return Tools.ExecuteNonQuery(komut);
+        }
+        public static List<OgrenciDetay> SonSinavİst()
+        {
+            SqlConnection sd = new SqlConnection(@"Data Source=YAKUP\SQLEXPRESS;Initial Catalog=StudentExam;Integrated Security=True");
+            SqlCommand komut = new SqlCommand("SonSinavİst", sd);
+            komut.CommandType = CommandType.StoredProcedure;
+            sd.Open();
+            List<OgrenciDetay> listSonuc = new List<OgrenciDetay>();
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                OgrenciDetay ogrenci = new OgrenciDetay();
+                ogrenci.CozulenSoruSayisi = (int)dr["CozulenSoruSayisi"];
+                ogrenci.DogruSayisi = (int)dr["DogruSayisi"];
+                ogrenci.YanlisSayisi = (int)dr["YanlisSayisi"];
+                ogrenci.Puan = (int)dr["Puan"];
+                listSonuc.Add(ogrenci);
+            }
+            sd.Close();
+            return listSonuc;
         }
         public static DataTable OgrenciDetayListele(Ogrenci entity)
         {

@@ -64,7 +64,21 @@ namespace OgrenciSinav
             chartGenel.Series["Genel"].Points[0].AxisLabel = "Toplam\nSoru";
             chartGenel.Series["Genel"].Points[1].AxisLabel = "Ortalama\nPuan";
 
+            List<OgrenciDetay> listSonuc = OgrenciDetaylar.SonSinavİst();
+            chartSinav.Series["SonSinav"].Points.Add(listSonuc[0].CozulenSoruSayisi);
+            chartSinav.Series["SonSinav"].Points.Add(listSonuc[0].DogruSayisi);
+            chartSinav.Series["SonSinav"].Points.Add(listSonuc[0].YanlisSayisi);
+            chartSinav.Series["SonSinav"].Points.Add(listSonuc[0].Puan);
 
+            chartSinav.Series["SonSinav"].Points[0].AxisLabel = "Cozulen\nSoru";
+            chartSinav.Series["SonSinav"].Points[1].AxisLabel = "Dogru\nSayisi";
+            chartSinav.Series["SonSinav"].Points[2].AxisLabel = "Yanlis\nSayisi";
+            chartSinav.Series["SonSinav"].Points[3].AxisLabel = "Puan";
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
